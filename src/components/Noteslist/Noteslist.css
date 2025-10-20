@@ -1,0 +1,141 @@
+.notes-section-layout {
+  font-family: "Inter", "Arial", sans-serif;
+  background-color: #282a36;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  padding: 25px;
+  width: 700px;
+  height: 500px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.notes-section-layout::-webkit-scrollbar {
+  width: 8px;
+}
+.notes-section-layout::-webkit-scrollbar-thumb {
+  background-color: #4a4e69;
+  border-radius: 10px;
+}
+.notes-section-layout::-webkit-scrollbar-track {
+  background: #282a36;
+}
+
+.notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #3a3d57;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  background-color: transparent;
+  color: white;
+}
+.sort-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sort-dropdown h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f0f0f0;
+  margin: 0;
+}
+.sort-dropdown label {
+  color: #a0a0b0;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+.sort-dropdown select {
+  padding: 8px 12px;
+  border: 1px solid #4a4e69;
+  border-radius: 8px;
+  background-color: #282a36;
+  color: white;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.sort-dropdown select:focus {
+  border-color: #8a2be2;
+  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.4);
+  outline: none;
+}
+
+.note-list-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.note-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 15px;
+  margin-bottom: 15px;
+  background-color: #282a36;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s ease-out;
+  border-left: 6px solid #8a2be2;
+}
+.note-item-row:hover {
+  background-color: #3a3d57;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+.note-info-group {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-right: 15px;
+  overflow: hidden;
+}
+
+.note-title-display {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f8f8ff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.note-date-display {
+  font-size: 0.85rem;
+  color: #a0a0b0;
+  margin-top: 5px;
+}
+
+.delete-button,
+.check-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.delete-button i {
+  color: #ff6b6b;
+  font-size: 1.4rem;
+}
+
+.delete-button:hover {
+  background-color: rgba(255, 107, 107, 0.2);
+  transform: scale(1.2);
+}
+
+.check-button i {
+  color: #00cc99;
+  font-size: 1.4rem;
+}
+
+.check-button:hover {
+  background-color: rgba(0, 204, 153, 0.2);
+  transform: scale(1.2);
+}
