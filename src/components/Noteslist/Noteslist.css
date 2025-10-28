@@ -6,18 +6,23 @@
   padding: 25px;
   width: 700px;
   height: 500px;
-  overflow: scroll;
-  overflow-x: hidden;
 }
-.notes-section-layout::-webkit-scrollbar {
+.div::-webkit-scrollbar {
   width: 8px;
 }
-.notes-section-layout::-webkit-scrollbar-thumb {
+.div::-webkit-scrollbar-thumb {
   background-color: #4a4e69;
   border-radius: 10px;
 }
-.notes-section-layout::-webkit-scrollbar-track {
+.div::-webkit-scrollbar-track {
   background: #282a36;
+}
+
+.div{
+  overflow: scroll;
+  overflow-x: hidden;
+  width: 100%;
+  height: 89%;
 }
 
 .notes-header {

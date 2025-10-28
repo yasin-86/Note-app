@@ -1,20 +1,24 @@
 import Noteitem from "../Noteitem/Noteitem";
 import "./Noteslist.css";
 
-function Noteslist() {
+function Noteslist({notes}) {
   return (
-    <section class="notes-section-layout">
-      <header class="notes-header">
-        <div class="sort-dropdown">
-          <label for="sort-by">Sort By:</label>
+    <section className="notes-section-layout">
+      <header className="notes-header">
+        <div className="sort-dropdown">
+          <label>Sort By:</label>
           <select id="sort-by" name="sort">
             <option value="latest">Latest</option>
             <option value="oldest">Oldest</option>
           </select>
-          <h1>Notes Count:</h1>
+          <h1>Notes Count:{notes.length}</h1>
         </div>
       </header>
-        <Noteitem />
+
+      <div className="div">
+        {notes.map((note)=> <Noteitem key={note.id} note={note}/>)}
+      </div>
+        
     </section>
   );
 }

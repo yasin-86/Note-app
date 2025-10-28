@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Addnote.css";
 
-function Addnote() {
+function Addnote({setNotes}) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -12,6 +12,9 @@ function Addnote() {
       id: new Date().toISOString(),
       isfinished: false,
     };
+
+    setNotes((prevnote) => [...prevnote ,info]);
+
     e.preventDefault();
 
     console.log(info);
@@ -21,11 +24,11 @@ function Addnote() {
   };
 
   return (
-    <form class="form-section" onSubmit={submithandeler}>
+    <form className="form-section" onSubmit={submithandeler}>
       <h2>Add Note</h2>
 
-      <div class="form-group">
-        <label htmlFor="note-title">Title</label>
+      <div className="form-group">
+        <label>Title</label>
         <input
           type="text"
           id="note-title"
@@ -36,8 +39,8 @@ function Addnote() {
         />
       </div>
 
-      <div class="form-group">
-        <label htmlFor="note-description">Description</label>
+      <div className="form-group">
+        <label>Description</label>
         <textarea
           id="note-description"
           name="description"
@@ -47,7 +50,7 @@ function Addnote() {
         ></textarea>
       </div>
 
-      <button type="submit" class="add-button">
+      <button type="submit" className="add-button">
         Add
       </button>
     </form>
