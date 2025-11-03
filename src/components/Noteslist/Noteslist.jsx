@@ -1,7 +1,7 @@
 import Noteitem from "../Noteitem/Noteitem";
 import "./Noteslist.css";
 
-function Noteslist({notes}) {
+function Noteslist({ notes, setNotes }) {
   return (
     <section className="notes-section-layout">
       <header className="notes-header">
@@ -16,9 +16,15 @@ function Noteslist({notes}) {
       </header>
 
       <div className="div">
-        {notes.map((note)=> <Noteitem key={note.id} note={note}/>)}
+        {notes.map((note) => (
+          <Noteitem
+            key={note.id}
+            note={note}
+            setNotes={setNotes}
+            notes={notes}
+          />
+        ))}
       </div>
-        
     </section>
   );
 }

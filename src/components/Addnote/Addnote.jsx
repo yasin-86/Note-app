@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Addnote.css";
 
-function Addnote({setNotes}) {
+function Addnote({ setNotes }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -13,11 +13,9 @@ function Addnote({setNotes}) {
       isfinished: false,
     };
 
-    setNotes((prevnote) => [...prevnote ,info]);
+    setNotes((prevnote) => [...prevnote, info]);
 
     e.preventDefault();
-
-    console.log(info);
 
     setTitle("");
     setDescription("");
