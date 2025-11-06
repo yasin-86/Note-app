@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Addnote from "./components/Addnote/Addnote";
 import Noteslist from "./components/Noteslist/Noteslist";
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(() => {
+    const saveNotes = localStorage.getItem("note");
+    return saveNotes ? JSON.parse(saveNotes) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("note", JSON.stringify(notes));
+  }, [notes]);
+
   return (
     <>
       <div className="main">
