@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Addnote.css";
+import toast from "react-hot-toast";
 
 function Addnote({ setNotes }) {
   const [title, setTitle] = useState("");
@@ -15,6 +16,7 @@ function Addnote({ setNotes }) {
 
     setNotes((prevnote) => [...prevnote, info]);
 
+    toast.success('Adding a note was successful.')
     e.preventDefault();
 
     setTitle("");

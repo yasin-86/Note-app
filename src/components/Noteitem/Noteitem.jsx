@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import "./Noteitem.css";
 
 function Noteitem({ note, setNotes, notes }) {
@@ -5,9 +6,20 @@ function Noteitem({ note, setNotes, notes }) {
     const newNote = notes.filter((note) => note.id !== id);
 
     setNotes(() => newNote);
+    toast('Note deletion was successful.✔️', {
+    icon: '🗑️',
+});
   };
+
+  const handlecheked = (id)=>{
+    const result = notes.map((note)=>{
+      return note.id == id ? {...note,isfinished : !note.isfinished} : note;
+      
+    })
+    setNotes(result)
+  }
   return (
-    <ul className="note-list-ul">
+    <ul className={`note-list-ul ${note.isfinished ? "complete" : ""}`}>
       <li className="note-item-row">
         <div className="note-info-group">
           <span className="note-title-display">{note.title}</span>
@@ -24,6 +36,9 @@ function Noteitem({ note, setNotes, notes }) {
         </button>
         <button className="edit-button" aria-label="edit note">
           <i className="fas fa-edit"></i>
+        </button>
+        <button className="check-button" aria-label="edit note" onClick={()=>handlecheked(note.id)}>
+          <i className="fas fa-check"></i>
         </button>
       </li>
     </ul>

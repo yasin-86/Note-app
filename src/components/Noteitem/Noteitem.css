@@ -71,10 +71,17 @@
   color: #ecf322;
   font-size: 1.3rem;
 }
-
+.check-button i{
+color: #11c900;
+  font-size: 1.3rem;
+}
 .edit-button:hover {
   background-color: #ecf32241;
   transform: scale(1.1);
+}
+.complete{
+  text-decoration: line-through 1px solid white;
+  opacity: 0.5;
 }
 
 .note-item-row:last-child {
