@@ -14,13 +14,19 @@ function Addnote({ setNotes }) {
       isfinished: false,
     };
 
-    setNotes((prevnote) => [...prevnote, info]);
+    if (title == "" || description == "") {
+      toast.error("Please write a text in title and description")
+    } else {
+      setNotes((prevnote) => [...prevnote, info]);
 
     toast.success('Adding a note was successful.')
-    e.preventDefault();
+    
 
     setTitle("");
     setDescription("");
+    }
+    
+    e.preventDefault();
   };
 
   return (
