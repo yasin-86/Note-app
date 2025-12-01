@@ -14,8 +14,8 @@ function Addnote({ setNotes }) {
       isfinished: false,
     };
 
-    if (title == "" || description == "") {
-      toast.error("Please write a text in title and description")
+    if (title == "") {
+      toast.error("Please write a text for title")
     } else {
       setNotes((prevnote) => [...prevnote, info]);
 

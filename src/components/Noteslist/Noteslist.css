@@ -17,12 +17,20 @@
 .div::-webkit-scrollbar-track {
   background: #282a36;
 }
-
+.text{
+  color: #c1c1c1;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 400;
+}
 .div{
   overflow: scroll;
   overflow-x: hidden;
   width: 100%;
-  height: 89%;
+  height: 76%;
+}
+.hr{
+  border: 1px solid #3A3D57;
 }
 
 .notes-header {
