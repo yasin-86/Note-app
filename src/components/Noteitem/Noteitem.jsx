@@ -3,13 +3,21 @@ import "./Noteitem.css";
 
 function Noteitem({ note, setNotes, notes }) {
   const handleDelete = (id) => {
-    const newNote = notes.filter((note) => note.id !== id);
-
-    setNotes(() => newNote);
+  const newNote = notes.filter((note) => note.id !== id);
+  const check = confirm("Are you sure you want to delete this note?");
+  
+  if (check) {
+    setNotes(newNote);
     toast('Note deletion was successful.✔️', {
-    icon: '🗑️',
-});
-  };
+      icon: '🗑️',
+    });
+  } else {
+    toast('Note deletion canceled', {
+      icon: '🚫	',
+    });
+  }
+};
+
 
   const handlecheked = (id)=>{
     const result = notes.map((note)=>{
