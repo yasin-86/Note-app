@@ -11,6 +11,13 @@ const data = [
 
 function Noteslist({ notes, setNotes }) {
   const [active, setActive] = useState(1);
+  const [order,setOrder] = useState("latest")
+
+  const changehandler = (e)=>{
+    setOrder(e.target.value)
+  }
+
+  
   const handleactive = (id) => {
     setActive(id);
   };
@@ -29,12 +36,19 @@ function Noteslist({ notes, setNotes }) {
     default:
       break;
   }
+  const time = [...filteredNotes].sort((a, b)=>{
+    if (order === "latest") {
+     return new Date(b.createdTime) - new Date(a.createdTime)
+    } else {
+      return new Date(a.createdTime) - new Date(b.createdTime)
+    }
+  }) 
   return (
     <section className="notes-section-layout">
       <header className="notes-header">
         <div className="sort-dropdown">
           <label>Sort By:</label>
-          <select id="sort-by" name="sort">
+          <select id="sort-by" name="sort" onChange={changehandler}>
             <option value="latest">Latest</option>
             <option value="oldest">Oldest</option>
           </select>
@@ -53,8 +67,8 @@ function Noteslist({ notes, setNotes }) {
       <hr className="hr" />
       <div className="div">
         <br />
-        {filteredNotes.length ? (
-          filteredNotes.map((note) => (
+        {time.length ? (
+          time.map((note) => (
             <Noteitem
               key={note.id}
               note={note}

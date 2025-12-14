@@ -11,7 +11,8 @@ function Addnote({ setNotes }) {
       title: e.target.title.value,
       description: e.target.description.value,
       id: new Date().toISOString(),
-      isfinished: false,
+      createdTime: new Date(),
+      isfinished: false
     };
 
     if (title == "") {
